@@ -67,4 +67,28 @@ class DataBaseHelper {
     log('--------------------');
     return con;
   }
+
+  //  update Contact
+  updateContact({required ContactModel contact, required int id}) async {
+    String query =
+        " UPDATE contacts SET contact_name=?,contact_number=? WHERE contact_id=?";
+
+    List args = [contact.name, contact.number];
+
+    int res = await db!.rawUpdate(query, args);
+  }
+
+  //  Delete Contact
+  Future<int> deleteContact({required id}) async {
+    if (db == null) {
+      createDataBase();
+    }
+    String query = "DELETE FROM contacts WHERE contact_id=?;";
+
+    List args = [id];
+
+    int res = await db!.rawDelete(query, args);
+
+    return res;
+  }
 }

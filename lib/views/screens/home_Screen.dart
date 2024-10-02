@@ -140,30 +140,33 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       ),
       body: Center(
-          child: FutureBuilder(
-              future: DataBaseHelper.dataBaseHelper.fetchAllContacts(),
-              builder: (context, snapshot) {
-                if (snapshot.hasError) {
-                  List<ContactModel>? data = snapshot.data;
-                  return Center(child: Text("Error:${snapshot.error}"));
-                } else if (snapshot.hasData) {
-                  List<ContactModel>? data = snapshot.data;
+        child: FutureBuilder(
+          future: DataBaseHelper.dataBaseHelper.fetchAllContacts(),
+          builder: (context, snapshot) {
+            if (snapshot.hasError) {
+              return Center(child: Text("Error:${snapshot.error}"));
+            } else if (snapshot.hasData) {
+              List<ContactModel>? data = snapshot.data;
 
-                  return (data!.isEmpty)
-                      ? const Text("No Data Found")
-                      : ListView.builder(
-                          itemCount: data.length,
-                          itemBuilder: (context, index) {
-                            return ListTile(
-                              leading: Text("${data[index]}"),
-                              title: Text("${data[index + 1].number}"),
-                              subtitle: Text("${data[index + 1].name}"),
-                            );
-                          },
+              return (data!.isEmpty)
+                  ? const Text("No Data Found")
+                  : ListView.builder(
+                      itemCount: data.length,
+                      itemBuilder: (context, index) {
+                        return ListTile(
+                          leading: Text("${data[index]}"),
+                          title: Text(data[index + 1].number),
+                          subtitle: Text(data[index + 1].name),
                         );
-                }
-                return const Center(child: CircularProgressIndicator());
-              })),
+                      },
+                    );
+            }
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          },
+        ),
+      ),
     );
   }
 }
