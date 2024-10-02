@@ -1,16 +1,13 @@
 # contact_dairy_app
 
-A new Flutter project.
+- Contact Diary is a comprehensive Flutter mobile application designed to help users manage their contacts efficiently. The app offers a variety of functionalities including saving contacts, editing contacts, making calls, 
+  sending messages, and deleting contacts.
 
-## Getting Started
+## *Features*
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- #### _Save Contact_ :  Users can save new contacts with essential details such as name, and phone number.
+- #### _Edit Contact_ : Users can edit the details of existing contacts.
+- #### _Call_ : Users can make phone calls directly from the app.
+- #### _Messages_ : Users can send SMS messages to their contacts.
+- #### _Delete Contact_ : Users can delete contacts that are no longer needed.
+  
